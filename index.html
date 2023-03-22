@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Girlfriend</title>
+</head>
+
+<body>
+  <div class="cont">
+    <!-- <div class="x"> X </div> -->
+  </div>
+  <h1>¿Natalia, <br> Quieres ser mi novia?</h1>
+
+  <a id="yes" href="#">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    Si
+  </a>
+
+  <div class="cont-no">
+    <a href="#" id="no">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      No
+    </a>
+  </div>
+  <div class="modal">
+    <p>Kevin está feliz!!!</p>
+    <img
+      src="https://media2.giphy.com/media/HSCZMUa1ao17h7l5mg/giphy.gif?cid=ecf05e47vayz6bt76x2fouc5iodgqvw0g13oh2fdaglpchfm&rid=giphy.gif&ct=g"
+      alt="" height="100">
+  </div>
+
+  <script>
+    const btnNo = document.querySelector(".cont-no");
+    const No = document.querySelector("#no");
+    const yes = document.querySelector("#yes");
+    const cont = document.querySelector(".cont");
+
+    btnNo.addEventListener("mouseover", () => {
+      num = Math.floor(Math.random() * window.innerHeight - 100);
+      num2 = Math.floor(Math.random() * window.innerWidth - 100);
+      btnNo.style.top = num + "px";
+      btnNo.style.left = num2 + "px";
+    });
+
+    btnNo.addEventListener("click", (e) => {
+      e.preventDefault();
+      num = Math.floor(Math.random() * window.innerHeight - 50);
+      num2 = Math.floor(Math.random() * window.innerWidth - 50);
+      btnNo.style.top = num + "px";
+      btnNo.style.left = num2 + "px";
+    });
+
+    yes.addEventListener("click", () => {
+      limiparHTML();
+      const divModal = document.querySelector(".modal");
+
+
+      cont.style.display = "flex";
+      divModal.style.display = "flex"
+
+      btnCerrar = document.createElement("div");
+      btnCerrar.classList.add("x");
+      btnCerrar.textContent = " x ";
+      cont.appendChild(divModal);
+      divModal.appendChild(btnCerrar);
+      No.style.display = "none";
+
+
+      btnCerrar.addEventListener("click", () => {
+        No.style.display = "flex";
+        cont.style.display = "none";
+      });
+
+    });
+
+    const x = document.querySelector(".x")
+    if (x) {
+
+      x.addEventListener('click', () => {
+        document.querySelector(".modal").style.display = "none"
+      })
+    }
+
+    function limiparHTML() {
+      // cont.innerHTML = '';
+    }
+
+    console.log(window.innerHeight);
+    console.log(window.innerWidth);
+  </script>
+</body>
+
+</html>
